@@ -94,12 +94,38 @@ class MyTableWidget(QWidget):
         self.tableWidget.setItem(0, 0, QTableWidgetItem("Nom ?"))
         self.tableWidget.setItem(1, 0, QTableWidgetItem("Prenom ?"))
         self.tableWidget.setItem(2, 0, QTableWidgetItem("Date de naissance ?"))
-        self.tableWidget.setItem(0, 1, QTableWidgetItem("Sexe ?"))
-        self.tableWidget.setItem(1, 1, QTableWidgetItem("Taille ?"))
-        self.tableWidget.setItem(2, 1, QTableWidgetItem("Poid ?"))
+        self.tableWidget.setItem(3, 0, QTableWidgetItem("Sexe ?"))
+        self.tableWidget.setItem(4, 0, QTableWidgetItem("Taille ?"))
+        self.tableWidget.setItem(5, 0, QTableWidgetItem("Poid ?"))
+
+        saveButton = QPushButton("Sauvegarde ?")
+        saveButton.clicked.connect(self.saveClick)
+        self.tab2.layout.addWidget(saveButton)
+
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
+
+    def saveClick(self):
+        print("sauvagarder")
+        dictionnaire = {}
+
+        if self.tableWidget.item(0, 1):
+            dictionnaire["nom"] = self.tableWidget.item(0, 1).text()
+        if self.tableWidget.item(1, 1):
+            dictionnaire["Prenom"] = self.tableWidget.item(1, 1).text()
+        if self.tableWidget.item(2, 1):
+            dictionnaire["Date"] = self.tableWidget.item(2, 1).text()
+        if self.tableWidget.item(3, 1):
+            dictionnaire["Sexe"] = self.tableWidget.item(3, 1).text()
+        if self.tableWidget.item(4, 1):
+            dictionnaire["Taille"] = self.tableWidget.item(4, 1).text()
+        if self.tableWidget.item(5, 1):
+            dictionnaire["Poids"] = self.tableWidget.item(5, 1).text()
+
+        print(dictionnaire)
+        with open('data.json', 'w') as file:
+            json.dump(dictionnaire, file)
 
     def openClick(self):
         print("click")
