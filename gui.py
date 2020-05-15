@@ -39,7 +39,7 @@ class Gui(QMainWindow):
 
         self.setMinimumSize(1280, 720)
 
-        self.setWindowTitle('Ravi Example')
+        self.setWindowTitle('Exo Pycharm')
 
         self.myWidget = MyTableWidget(self)
 
@@ -91,12 +91,12 @@ class MyTableWidget(QWidget):
         self.tab2.layout.addWidget(self.tableWidget)
         self.tab2.setLayout(self.tab2.layout)
 
-        self.tableWidget.setItem(0, 0, QTableWidgetItem("Bruyere ?"))
-        self.tableWidget.setItem(1, 0, QTableWidgetItem("Maxime ?"))
-        self.tableWidget.setItem(2, 0, QTableWidgetItem("07/07/1999 ?"))
-        self.tableWidget.setItem(0, 1, QTableWidgetItem("Masculin ?"))
-        self.tableWidget.setItem(1, 1, QTableWidgetItem("2m10 ?"))
-        self.tableWidget.setItem(2, 1, QTableWidgetItem("85 kg ?"))
+        self.tableWidget.setItem(0, 0, QTableWidgetItem("Nom ?"))
+        self.tableWidget.setItem(1, 0, QTableWidgetItem("Prenom ?"))
+        self.tableWidget.setItem(2, 0, QTableWidgetItem("Date de naissance ?"))
+        self.tableWidget.setItem(0, 1, QTableWidgetItem("Sexe ?"))
+        self.tableWidget.setItem(1, 1, QTableWidgetItem("Taille ?"))
+        self.tableWidget.setItem(2, 1, QTableWidgetItem("Poid ?"))
         # Add tabs to widget
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
